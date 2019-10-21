@@ -15,7 +15,7 @@ public class Program
 			throw new ArgumentNullException("array");
 		}
 		string n;
-		for (int b=(array.Length-1); b<=1; --b)
+		for (int b=(array.Length-1); b>=1; --b)
 		{
 			for(int j=0; j<b; ++j)
 			{
