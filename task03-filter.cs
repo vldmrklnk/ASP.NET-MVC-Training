@@ -13,8 +13,30 @@ public class Program
 {
 	public static int[] Filter(int[] source)
 	{
-		// ИЗМЕНИТЕ КОД ЭТОГО МЕТОДА
-		return Array.Empty<int>();
+		if (source==null)
+		{
+			throw new ArgumentNullException("s");
+		}
+		int msize = 0;
+		List<int> temprary = new List<int>();
+		for (int i = 0; i <= (source.Length-1); ++i)
+			{
+				int z = 0;
+				for (int b = 0; b <= (source.Length-1); ++b )
+				{
+				
+					if (source[i] == source[b])
+					{
+						z++;											
+					}
+				}
+				if (z == 1)
+				{
+					temprary.Add(source[i]);
+					msize++;
+				}
+			}
+		return temprary.ToArray();
 	}
 
 	// ДОБАВЬТЕ НОВЫЕ МЕТОДЫ, ЕСЛИ НЕОБХОДИМО
