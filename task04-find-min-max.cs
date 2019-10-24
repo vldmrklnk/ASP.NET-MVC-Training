@@ -10,14 +10,62 @@ public class Program
 {
 	public static bool FindMinMax(int[][] array, out int min, out int max)
 	{
-		min = int.MinValue;
-		max = int.MaxValue;
-
-		// ИЗМЕНИТЕ КОД ЭТОГО МЕТОДА
-		return false;
+	{
+		if (array == null)
+		{
+			throw new ArgumentNullException("array");
+		}
+		min = array[0][0];
+		max = array[0][0];
+		for (int i = 0; i <= (array.Length - 1); i++)
+		{
+			for (int x = 0; x <= (array[i].Length - 1); x++)
+			{
+				if (array[i][x].GetType()==null)
+				{
+					x++;
+				}
+				else
+				{
+					if (array[i][x] <= min)
+					{
+						min = array[i][x];
+					}
+					else
+					{
+						if (max <= array[i][x])
+						{
+							max = array[i][x];
+						}
+					}
+				}
+			}
+		}
+		
+		return INTEGER(array);
 	}
 
-	// ДОБАВЬТЕ НОВЫЕ МЕТОДЫ, ЕСЛИ НЕОБХОДИМО
+public static bool INTEGER(int[][] mass)
+	{
+		bool result = false;
+		for (int i = 0; i <= (mass.Length - 1); i++)
+		{
+			for (int x = 0; x <= (mass[i].Length - 1); x++)
+			{
+				if (mass[i][x].GetType() == typeof(int))
+				{
+					result = true;
+					break;
+				}
+				else
+				{
+					result = false;
+				}
+			}
+		}
+	return result;
+}
+
 
 	// ----- ЗАПРЕЩЕНО ИЗМЕНЯТЬ КОД МЕТОДОВ, КОТОРЫЕ НАХОДЯТСЯ НИЖЕ -----
 
